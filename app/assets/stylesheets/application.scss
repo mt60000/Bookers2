@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstrap";
+ @import 'font-awesome-sprockets';
+ @import 'font-awesome';
+
+main {
+ margin-top: 15px;
+}
+#user_password_confirmation {
+ margin-bottom: 10px;
+}
+.nav-link {
+ margin: 5px 0;
+}
+.sign_up-btn, .log_in-btn {
+ margin-bottom: 10px;
+}

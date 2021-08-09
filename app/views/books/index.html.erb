@@ -1,6 +1,7 @@
 <main>
   <%= render '/layouts/flash' %>
   <div class="container px-5 px-5 px-sm-0">
+    <%= render '/layouts/errors', model: @book %>
     <div class="row">
       <div class="col-md-3">
         <%= render '/users/user_info', user: @user %>

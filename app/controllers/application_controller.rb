@@ -11,6 +11,12 @@ class ApplicationController < ActionController::Base
 
   end
 
+  def unless_user_signed_in
+    unless user_signed_in?
+      redirect_to user_session_path
+    end
+  end
+
   protected
 
   def configure_permitted_parameters

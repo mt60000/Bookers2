@@ -17,8 +17,11 @@
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
 
-main {
- margin-top: 15px;
+header {
+ margin-bottom: 15px;
+}
+.field_with_errors {
+ display: contents;
 }
 #user_password_confirmation {
  margin-bottom: 10px;

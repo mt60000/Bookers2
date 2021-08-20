@@ -1,0 +1,6 @@
+<h1>Follow Users</h1>
+<% if @users.exists? %>
+  <%= render 'index', user: @users %>
+<% else %>
+  <p>ユーザーはいません</p>
+<% end %>

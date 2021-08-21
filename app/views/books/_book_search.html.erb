@@ -1,0 +1,18 @@
+<thead>
+  <tr>
+    <th>Title</th>
+    <th>Opinion</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <% books.each do |book| %>
+      <td>
+        <%= link_to book_path(book) do %>
+          <%= book.title %>
+        <% end %>
+      </td>
+      <td><%= book.body %></td>
+    <% end %>
+  </tr>
+</tbody>

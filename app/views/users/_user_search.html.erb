@@ -1,0 +1,27 @@
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Introduction</th>
+    <th>Follows</th>
+    <th>Followers</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <% users.each do |user| %>
+      <td>
+        <%= link_to user_path(user) do %>
+          <%= attachment_image_tag :profile_image, model.user, :fill, 40, 40, fallback: 'no_image.jpg', size: '40x40' %>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to user_path(user) do %>
+          <%= model.name %>
+        <% end %>
+      </td>
+      <td><%= user.introduction %></td>
+      <td><%= user.followings.count %></td>
+      <td><%= user.followers.count %></td>
+    <% end %>
+  </tr>
+</tbody>

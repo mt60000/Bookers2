@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <% if @model == User %>
+      <h1>Users search for"<%= @content %>"</h1>
+    <% elsif @model == Book %>
+      <h1>Books search for"<%= @content %>"</h1>
+    <% end %>
+    <table class="table">
+      <% if @model == User %>
+        <%= render '/users/user_search', users: @users %>
+      <% elsif @model == Book %>
+        <%= render '/books/book_search', books: @books %>
+      <% else %>
+        <p>"<%= @content %>" に一致する情報は見つかりませんでした</p>
+      <% end %>
+    </table>
+  </div>
+</div>

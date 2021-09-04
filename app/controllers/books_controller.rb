@@ -2,7 +2,21 @@ class BooksController < ApplicationController
   before_action :authenticate_user!, excect: [:index, :show]
 
   def index
+    to = Time.current.at_end_of_day
+    from = (to - 6.day).at_beginning_of_day
     @books = Book.all
+    @books_rank = Book.includes(:favorited_users)
+                      .sort {|a,b|
+                        b.favorited_users.includes(:favorites).where(created_at: from...to).count <=>
+                        a.favorited_users.includes(:favorites).where(created_at: from...to).count
+                      }
+
+
+    # @books_rank = Book.all
+    #                   .(Favorite.group(:book_id)
+    #                   .where(created_at: from...to)
+    #                   .order('count(book_id) desc')
+    #                   .pluck(:book_id))
     @book =Book.new
     @user = current_user
   end

@@ -38,6 +38,9 @@ header {
 #error-explanation {
  color: #FF0000;
 }
-.favorite {
+.favorite-btn:hover {
+ text-decoration: none;
+}
+.red {
  color: red;
 }

@@ -27,4 +27,5 @@
   <% else %>
     <%= render '/users/follow_btn', user: @user %>
   <% end %>
+  <%= render 'users/chat_btn', {user: @user, is_room: @is_room, room_id: @room_id, room: @room, entry: @entry} %>
 </div>

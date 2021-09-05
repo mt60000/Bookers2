@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, excect: [:index, :show]
+  before_action :authenticate_user!, excect: [:index, :show, :chat_room]
 
   def index
     @users = User.all
@@ -11,7 +11,22 @@ class UsersController < ApplicationController
     @book = Book.new
     @user = User.find(params[:id])
     @books = @user.books
-
+    @current_user_entry = Entry.where(user_id: current_user.id)
+    @user_entry = Entry.where(user_id: @user.id)
+    unless @user.id == current_user.id
+      @current_user_entry.each do |current_user|
+        @user_entry.each do |user|
+          if current_user.room_id == user.room_id then
+            @is_room = true
+            @room_id = current_user.room_id
+          end
+        end
+      end
+      unless @is_room
+        @room = Room.new
+        @entry = Entry.new
+      end
+    end
   end
 
   def edit

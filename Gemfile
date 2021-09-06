@@ -51,7 +51,7 @@ group :development do
 end
 
 group :test do
-  
+
   gem 'capybara', '>= 2.15'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
@@ -67,3 +67,4 @@ gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.13'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
+gem 'impressionist', '~> 1.6.1'

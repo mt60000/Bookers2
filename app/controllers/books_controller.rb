@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   before_action :authenticate_user!, excect: [:index, :show]
+  impressionist :actions => [:show], unique: [:impressionable_type,:impressionable_id,:session_hash.to_s]
 
   def index
     to = Time.current
